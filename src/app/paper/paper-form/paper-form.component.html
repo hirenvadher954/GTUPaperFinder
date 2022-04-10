@@ -1,0 +1,48 @@
+<div class="background-img" >
+  <div class="box">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <div class="content">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="container my-2">
+          <div class="d-flex align-items-center justify-content-center" style="height: 80px">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input"
+                     id="BE"
+                     type="radio"
+                     value="BE"
+                     formControlName="branchName">
+              <label class="form-check-label" for="BE">Degree</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input"
+                     id="DI"
+                     type="radio"
+                     value="DI"
+                     formControlName="branchName"
+              >
+              <label class="form-check-label" for="DI">Diploma</label>
+            </div>
+          </div>
+          <div class="d-flex align-items-center justify-content-center">
+            <div class="mb-3 ">
+              <input id="subjectCode" class="form-control" placeholder="Subject Code" name="subjectCode"
+                     oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                     type="number"
+                     maxlength="7"
+                     formControlName="subjectCode"
+              /></div>
+          </div>
+          <div class="d-flex align-items-center justify-content-center">
+            <button class="btn btn-primary" type="onSubmit" id="submit" name="submit" value="submit"
+
+            >Find Paper
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

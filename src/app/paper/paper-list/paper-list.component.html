@@ -1,0 +1,58 @@
+<div
+  class="background-img"
+  [ngStyle]="{
+    height:
+      !this.isLoading && papers.length > 4 && isMobieDevice
+        ? papers.length * 88 + 'px'
+        : isMobieDevice
+        ? '350px'
+        : '600px'
+  }"
+>
+  <div
+    class="box box-table"
+    [ngStyle]="{
+      height:
+        !this.isLoading && papers.length > 4 && isMobieDevice
+          ? papers.length * 88 + 'px'
+          : isMobieDevice
+          ? '350px'
+          : '500px'
+    }"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <div class="content">
+      <div class="container my-2">
+        <div id="load" *ngIf="this.isLoading">
+          <div>G</div>
+          <div>N</div>
+          <div>I</div>
+          <div>D</div>
+          <div>A</div>
+          <div>O</div>
+          <div>L</div>
+        </div>
+        <table class="styled-table" *ngIf="!this.isLoading">
+          <thead>
+            <tr>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="papers.length; else paperNotFound">
+            <tr *ngFor="let paper of papers" class="active-row">
+              <td>
+                <a href="{{ paper.paperLink }}"> {{ paper.year }}</a>
+              </td>
+            </tr>
+          </tbody>
+          <ng-template #paperNotFound>
+            <h2>Paper not found for this subject code :(</h2>
+          </ng-template>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
